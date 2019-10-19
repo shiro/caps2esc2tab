@@ -1,23 +1,23 @@
-# caps2esc
+# caps2esc2tab
 
-_Transforming the most useless key **ever** in the most useful one._
-<sub>_For vi/Vim/NeoVim addicts at least_.</sub>
+_Transforming the most useless keys **ever** in the most useful ones._
+<sub>not enough keys on your keyboard? here's some modifiers!</sub>
 
-<a href="http://www.catonmat.net/blog/why-vim-uses-hjkl-as-arrow-keys/">
-    <img src="http://www.catonmat.net/images/why-vim-uses-hjkl/lsi-adm3a-full-keyboard.jpg" alt="ADM-3A terminal">
-</a>
 
 ## What is it?
 
-- **Put what's useless in its place**
-  <sub>_By moving the CAPSLOCK function to the far ESC location_</sub>
-- **Make what's useful comfortably present, just below your Pinky**
-  <sub>_By moving both ESC and CTRL functions to the CAPSLOCK location_</sub>
+A key remapping utility.
 
-## Why?!
+- `ESC` is `CAPSLOCK`
+- `CAPSLOCK` is `ESC`
+- `CAPSLOCK` is `CTRL` (as modifier)
+- `TAB` is `ALT+SHIFT+META` (as modifier)
 
-Because CAPSLOCK is just "right there" and making it CTRL when key-chording and
-ESC when pressed alone is quite handy, specially in vi.
+
+## Why?
+
+- Add a new modifier key
+- Make keybindings more convenient
 
 ## Dependencies
 
@@ -36,11 +36,11 @@ $ make
 
 ## Execution
 
-`caps2esc` is an [_Interception Tools_][interception-tools] plugin. A suggested
+`caps2esc2tab` is an [_Interception Tools_][interception-tools] plugin. A suggested
 `udevmon` job configuration is:
 
 ```yaml
-- JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
+- JOB: "intercept -g $DEVNODE | caps2esc2tab | uinput -d $DEVNODE"
   DEVICE:
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
@@ -52,15 +52,9 @@ the project's website.
 
 ## Installation
 
-I'm maintaining an Archlinux package on AUR:
+Currently manual installation **only**.
 
-- <https://aur.archlinux.org/packages/interception-caps2esc>
-
-I don't use Ubuntu and recommend Archlinux instead, as it provides the AUR, so I
-don't maintain PPAs. For more information on Ubuntu/Debian installation check
-this:
-
-- <https://askubuntu.com/questions/979359/how-do-i-install-caps2esc>
+If someone wants to maintain this on aur, go ahead!
 
 ## Caveats
 
@@ -72,31 +66,13 @@ As always, there's always a caveat:
 
 ## History
 
-I can't recall when I started using CAPSLOCK as both ESC and CTRL but it has
-been quite some time already. It started when I was on OS X where it was quite
-easy to achieve using the [Karabiner][], which already provides an option to
-turn CTRL into CTRL/ESC (which can be coupled with OS X system settings that
-turn CAPSLOCK into CTRL).
+I forked the useful caps2esc key to add the tab functionality which I was
+using, while being on Windows OS.
 
-Moving on, permanently making Linux my home, I searched and tweaked a similar
-solution based on [xmodmap][] and [xcape][]:
-
-- <https://github.com/alexandre/caps2esc>
-
-It's a simple solution but with many annoying drawbacks I couldn't stand in the
-end:
-
-- It resets any time a device change happens (bluetooth, usb, any) or the
-  laptop lid is closed or when logging off and needs to be re-executed.
-- It depends on [X][]. Doesn't work on TTY (bare terminal based machine,
-  CTRL-ALT F2, etc).
-
-Meanwhile on Windows land, I had a definitive solution based on my
-[Interception library][interception] that always works perfectly, no hiccups.
-
-It made me envy enough, so I ported the
-[Windows Interception caps2esc][caps2esc-windows] sample to Linux based upon
-the [_Interception Tools_][interception-tools].
+It's great for virtual monitor management as it's possible to use `tab` +
+`[key]` to easily switch desktops.  
+Furthermore it's even possible to combine `tab` with `caps lock` and `[key]` to
+get another set of bindable keys!
 
 ## License
 
