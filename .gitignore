@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/c,c++,vim,linux
 
 ### C ###
@@ -112,3 +111,6 @@ tags
 .tmuxp.yaml
 .gdb_history
 .ycm_extra_conf.py
+
+build/
+cmake-build-debug/
