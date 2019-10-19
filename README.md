@@ -1,6 +1,7 @@
 # caps2esc2tab
 
-_Transforming the most useless keys **ever** in the most useful ones._
+_Transforming the most useless keys **ever** in the most useful ones.
+
 <sub>not enough keys on your keyboard? here's some modifiers!</sub>
 
 
@@ -43,7 +44,7 @@ $ make
 - JOB: "intercept -g $DEVNODE | caps2esc2tab | uinput -d $DEVNODE"
   DEVICE:
     EVENTS:
-      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_TAB]
 
 ```
 
