@@ -17,6 +17,7 @@ const struct input_event
         esc_down = {.type = EV_KEY, .code = KEY_ESC, .value = 1},
         ctrl_down = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = 1},
         alt_down = {.type = EV_KEY, .code = KEY_LEFTALT, .value = 1},
+        alt_repeat = {.type = EV_KEY, .code = KEY_LEFTALT, .value = 2},
         shift_down = {.type = EV_KEY, .code = KEY_LEFTSHIFT, .value = 1},
         meta_down = {.type = EV_KEY, .code = KEY_LEFTMETA, .value = 1},
         capslock_down = {.type = EV_KEY, .code = KEY_CAPSLOCK, .value = 1},
@@ -29,6 +30,14 @@ const struct input_event
         tab_repeat = {.type = EV_KEY, .code = KEY_TAB, .value = 2},
 
 
+        right_alt_up = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = 0},
+        right_alt_down = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = 1},
+        right_alt_repeat = {.type = EV_KEY, .code = KEY_RIGHTALT, .value = 2},
+
+        space_up = {.type = EV_KEY, .code = KEY_SPACE, .value = 0},
+        space_down = {.type = EV_KEY, .code = KEY_SPACE, .value = 1},
+        space_repeat = {.type = EV_KEY, .code = KEY_SPACE, .value = 2},
+
         syn = {.type = EV_SYN, .code = SYN_REPORT, .value = 0};
 // clang-format on
 
@@ -37,6 +46,8 @@ int alt_is_down = 0;
 int shift_is_down = 0;
 int ctrl_is_down = 0;
 int meta_is_down = 0;
+int space_is_down = 0;
+int right_alt_is_down = 0;
 
 int equal(const struct input_event *first, const struct input_event *second) {
     return first->type == second->type && first->code == second->code &&
@@ -60,6 +71,9 @@ int main(void) {
     int capslock_is_down = 0, esc_give_up = 0;
     int tab_is_down = 0, tab_give_up = 0;
 
+
+    // whenever space + [KEY] was pressed
+    int right_alt_mod_triggered = 0;
 
     struct input_event input;
 
@@ -178,6 +192,41 @@ int main(void) {
 
         if (input.code == KEY_ESC)
             input.code = KEY_CAPSLOCK;
+
+
+        if (right_alt_is_down) {
+            if (equal(&input, &right_alt_down) ||
+                equal(&input, &right_alt_repeat))
+                continue;
+
+            if (equal(&input, &right_alt_up)) {
+                right_alt_is_down = 0;
+                if (right_alt_mod_triggered) {
+                    right_alt_mod_triggered = 0;
+                    write_event(&alt_up);
+                    write_event(&meta_up);
+                    continue;
+                }
+                write_event(&right_alt_down);
+                write_event(&syn);
+                usleep(20000);
+                write_event(&right_alt_up);
+                continue;
+            }
+
+            // pressed space + [KEY]
+            if (input.value) {
+                right_alt_mod_triggered = 1;
+                write_event(&alt_down);
+                write_event(&meta_down);
+                write_event(&syn);
+                usleep(20000);
+            }
+        } else if (equal(&input, &right_alt_down)) {
+            right_alt_is_down = 1;
+            continue;
+        }
+
 
         write_event(&input);
     }
