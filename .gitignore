@@ -112,5 +112,6 @@ tags
 .gdb_history
 .ycm_extra_conf.py
 
+.idea/workspace.xml
 build/
 cmake-build-debug/
