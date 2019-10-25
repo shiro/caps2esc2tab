@@ -8,10 +8,10 @@ int capslock_mod(struct appstate *state) {
         
         if (equal(&state->input, &capslock_up)) {
             state->capslock_is_down = 0;
+            write_event(&ctrl_up);
             
             if (blacklist_contains_key(state, capslock_down.code)) {
                 unblacklist_key(state, capslock_down.code);
-                write_event(&ctrl_up);
                 return 1;
             }
             write_event(&esc_down);
@@ -50,12 +50,11 @@ int capslock_mod(struct appstate *state) {
                 return 1;
             }
             
-            write_event(&ctrl_down);
-            write_event(&syn);
-            usleep(20000);
+            return 0;
         }
     } else if (equal(&state->input, &capslock_down) && !is_modifier_down(state)) {
         state->capslock_is_down = 1;
+        write_event(&ctrl_down);
         return 1;
     } else if (equal(&state->input, &capslock_down)) {
         // handle modifier + caps_lock down
