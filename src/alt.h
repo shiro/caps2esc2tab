@@ -21,42 +21,45 @@ int alt_mod(struct appstate *state) {
         }
         
         // pressed alt + [KEY]
-        if (state->input.value) {
-            blacklist_key(state, alt_down.code);
-            
-            const struct input_event *mapped_down_key = 0;
-            const struct input_event *mapped_up_key   = 0;
-            
-            if (equal(&state->input, &h_down)) {
-                mapped_down_key = &arrow_left_down;
-                mapped_up_key   = &arrow_left_up;
-            } else if (equal(&state->input, &j_down)) {
-                mapped_down_key = &arrow_down_down;
-                mapped_up_key   = &arrow_down_up;
-            } else if (equal(&state->input, &k_down)) {
-                mapped_down_key = &arrow_up_down;
-                mapped_up_key   = &arrow_up_up;
-            } else if (equal(&state->input, &l_down)) {
-                mapped_down_key = &arrow_right_down;
-                mapped_up_key   = &arrow_right_up;
-            }else if (equal(&state->input, &l_up)) {
-                //mapped_down_key = &arrow_right_up;
-                //mapped_up_key   = &arrow_right_up;
-            }
-            
-            if (mapped_down_key) {
-                write_event(mapped_down_key);
-                write_event(&syn);
-                usleep(20000);
-                write_event(mapped_up_key);
-                
-                return 1;
-            }
-            
-            write_event(&alt_down);
-            write_event(&syn);
-            usleep(20000);
+        blacklist_key(state, alt_down.code);
+        
+        const struct input_event *mapped_key = 0;
+        
+        
+        if (equal(&state->input, &h_down)) {
+            mapped_key = &arrow_left_down;
+        } else if (equal(&state->input, &h_up)) {
+            mapped_key = &arrow_left_up;
+        } else if (equal(&state->input, &h_repeat)) {
+            mapped_key = &arrow_left_repeat;
+        } else if (equal(&state->input, &j_down)) {
+            mapped_key = &arrow_down_down;
+        } else if (equal(&state->input, &j_up)) {
+            mapped_key = &arrow_down_up;
+        } else if (equal(&state->input, &j_repeat)) {
+            mapped_key = &arrow_down_repeat;
+        } else if (equal(&state->input, &k_down)) {
+            mapped_key = &arrow_up_down;
+        } else if (equal(&state->input, &k_up)) {
+            mapped_key = &arrow_up_up;
+        } else if (equal(&state->input, &k_repeat)) {
+            mapped_key = &arrow_up_repeat;
+        } else if (equal(&state->input, &l_down)) {
+            mapped_key = &arrow_right_down;
+        } else if (equal(&state->input, &l_repeat)) {
+            mapped_key = &arrow_right_repeat;
+        } else if (equal(&state->input, &l_up)) {
+            mapped_key = &arrow_right_up;
         }
+        
+        if (mapped_key) {
+            write_event(mapped_key);
+            return 1;
+        }
+        
+        write_event(&alt_down);
+        write_event(&syn);
+        usleep(20000);
     } else if (equal(&state->input, &alt_down)) {
         state->alt_is_down = 1;
         return 1;

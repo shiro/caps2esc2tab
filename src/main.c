@@ -36,7 +36,7 @@ int main(void) {
     
     
         if (tab_mod(&state)) continue;
-        
+
         if (capslock_mod(&state)) continue;
     
         if (alt_mod(&state)) continue;
