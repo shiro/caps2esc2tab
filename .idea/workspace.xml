@@ -21,6 +21,9 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FavoritesManager">
+    <favorites_list name="caps2esc2tab" />
+  </component>
   <component name="ProjectId" id="1SOq65Zi1ZydfnDdLAM17f95dkI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,8 +33,16 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.has.clang-format" value="true" />
-    <property name="last_opened_file_path" value="/run/media/shiro/Nov nosilec1/Users/shiro/project/fh/sge-demo" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.C/C++" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="caps2esc2tab" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="caps2esc2tab" TARGET_NAME="caps2esc2tab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="caps2esc2tab" RUN_TARGET_NAME="caps2esc2tab">
@@ -41,14 +52,20 @@
     </configuration>
   </component>
   <component name="WindowStateProjectService">
-    <state x="723" y="1681" width="542" height="611" key="FileChooserDialogImpl" timestamp="1571588131294">
-      <screen x="0" y="1440" width="1920" height="1080" />
+    <state x="641" y="279" width="628" height="549" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1571959858677">
+      <screen x="0" y="0" width="4480" height="2880" />
     </state>
+    <state x="641" y="279" width="628" height="549" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.4480.2880@0.0.4480.2880" timestamp="1571959858677" />
+    <state x="721" y="219" width="542" height="611" key="FileChooserDialogImpl" timestamp="1571726460231">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="721" y="219" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1571726460231" />
     <state x="723" y="1681" key="FileChooserDialogImpl/0.1440.1920.1080/1920.1440.1664.936/0.0.2560.1440@0.1440.1920.1080" timestamp="1571588131294" />
     <state x="723" y="1681" width="542" height="611" key="FileChooserDialogImpl/0.1440.1920.1080/1920.1440.1664.936/66.0.2494.1440@0.1440.1920.1080" timestamp="1571561024484" />
-    <state x="454" y="1600" key="SettingsEditor" timestamp="1571694253842">
-      <screen x="0" y="1440" width="1920" height="1080" />
+    <state x="879" y="120" key="SettingsEditor" timestamp="1571944573508">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="879" y="120" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1571944573508" />
     <state x="454" y="1600" key="SettingsEditor/0.1440.1920.1080/1920.1440.1664.936/0.0.2560.1440@0.1440.1920.1080" timestamp="1571694253842" />
     <state x="670" y="1627" width="817" height="705" key="find.popup" timestamp="1571588051911">
       <screen x="0" y="1440" width="1920" height="1080" />
@@ -56,10 +73,13 @@
     <state x="670" y="1627" width="817" height="705" key="find.popup/0.1440.1920.1080/1920.1440.1664.936/0.0.2560.1440@0.1440.1920.1080" timestamp="1571588051911" />
     <state x="670" y="1627" width="817" height="705" key="find.popup/0.1440.1920.1080/1920.1440.1664.936/66.0.2494.1440@0.1440.1920.1080" timestamp="1571560984328" />
     <state x="762" y="1627" width="789" height="705" key="find.popup/92.1440.1920.1080/2012.1440.2560.1440/0.0.2560.1440@92.1440.1920.1080" timestamp="1571474669427" />
-    <state x="656" y="1679" width="672" height="678" key="search.everywhere.popup" timestamp="1571695965424">
-      <screen x="0" y="1440" width="1920" height="1080" />
+    <state x="1533" y="637" width="1811" height="1811" key="search.everywhere.popup" timestamp="1571998484499">
+      <screen x="0" y="0" width="4480" height="2880" />
     </state>
+    <state x="657" y="239" width="776" height="679" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1571945418154" />
+    <state x="1533" y="637" width="1811" height="1811" key="search.everywhere.popup/0.0.4480.2880@0.0.4480.2880" timestamp="1571998484499" />
     <state x="656" y="1679" width="672" height="678" key="search.everywhere.popup/0.1440.1920.1080/1920.1440.1664.936/0.0.2560.1440@0.1440.1920.1080" timestamp="1571695965424" />
+    <state x="2489" y="1647" width="672" height="588" key="search.everywhere.popup/0.1440.1920.1080/1920.1440.1664.936/0.0.2560.1440@1920.1440.1664.936" timestamp="1571697310730" />
     <state x="748" y="1679" width="672" height="678" key="search.everywhere.popup/92.1440.1920.1080/2012.1440.2560.1440/0.0.2560.1440@92.1440.1920.1080" timestamp="1571474682320" />
   </component>
 </project>

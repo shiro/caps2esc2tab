@@ -11,8 +11,10 @@ A key remapping utility.
 
 - `ESC` is `CAPSLOCK`
 - `CAPSLOCK` is `ESC`
-- `CAPSLOCK` is `CTRL` (as modifier)
-- `TAB` is `ALT+SHIFT+META` (as modifier)
+- `CAPSLOCK` is `CTRL` + `[KEY]`
+- `CAPSLOCK` + `[h, j, k, l]` is `CTRL+ALT+SHIFT+META` + `[KEY]`
+- `TAB` + `[KEY]` is `ALT+SHIFT+META` + `[KEY]`
+- `RIGHT_ALT` + `[KEY]` is `ALT++META` + `[KEY]`
 
 
 ## Why?
