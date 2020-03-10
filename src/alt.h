@@ -51,6 +51,11 @@ int alt_mod(struct appstate *state) {
         } else if (equal(&state->input, &l_up)) {
             mapped_key = &arrow_right_up;
         }
+    
+        if (equal(&state->input, &wheel_up)) {
+            write_event(&alt_up);
+            return 1;
+        }
         
         if (mapped_key) {
             write_event(mapped_key);

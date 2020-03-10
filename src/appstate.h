@@ -28,9 +28,15 @@ const struct input_event
         ctrl_repeat     = {.type = EV_KEY, .code = KEY_LEFTCTRL, .value = 2},
         capslock_repeat = {.type = EV_KEY, .code = KEY_CAPSLOCK, .value = 2},
         
+        wheel_up       = {.type = EV_REL, .code = REL_WHEEL, .value = 1},
+        wheel_down       = {.type = EV_REL, .code = REL_WHEEL, .value = -1},
+        
         tab_up     = {.type = EV_KEY, .code = KEY_TAB, .value = 0},
         tab_down   = {.type = EV_KEY, .code = KEY_TAB, .value = 1},
         tab_repeat = {.type = EV_KEY, .code = KEY_TAB, .value = 2},
+        
+        F8_up   = {.type = EV_KEY, .code = KEY_F8, .value = 0},
+        F8_down = {.type = EV_KEY, .code = KEY_F8, .value = 1},
         
         h_up   = {.type = EV_KEY, .code = KEY_H, .value = 0},
         h_down = {.type = EV_KEY, .code = KEY_H, .value = 1},
@@ -77,6 +83,9 @@ struct appstate {
     int                meta_is_down;
     int                alt_is_down;
     int                right_alt_is_down;
+    
+    int                script_is_paused;
+    
     struct input_event input;
     
     int ignore_list[IGNORE_LIST_SIZE];
