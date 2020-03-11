@@ -13,7 +13,7 @@
 int main(void) {
     struct appstate state;
     state.ignore_list_index = -1;
-    state.script_is_paused  = 0;
+    state.disable_alt_mod   = 0;
     
     setbuf(stdin, NULL), setbuf(stdout, NULL);
     
@@ -23,20 +23,20 @@ int main(void) {
             continue;
     
         if (equal(&state.input, &F8_down)) {
-            state.script_is_paused = !state.script_is_paused;
+            state.disable_alt_mod = !state.disable_alt_mod;
         }
     
-        if (state.script_is_paused ||
-            (state.input.type != EV_KEY && state.input.type != EV_REL)
-                ) {
+        // key not handled by the script
+        if ( state.input.type != EV_KEY && state.input.type != EV_REL) {
             write_event(&state.input);
             continue;
         }
         
-        if (equal(&state.input, &ctrl_down)) { state.control_is_down = 1;
-        } else if (equal(&state.input, &ctrl_up)) {
-            state.control_is_down = 0;
-        }
+        if (equal(&state.input, &ctrl_down)) state.control_is_down = 1;
+        else if (equal(&state.input, &ctrl_up)) state.control_is_down = 0;
+    
+        if (equal(&state.input, &shift_down)) state.shift_is_down = 1;
+        else if (equal(&state.input, &shift_up)) state.shift_is_down = 0;
         
         if (equal(&state.input, &wheel_up)) {
             continue;
@@ -45,10 +45,12 @@ int main(void) {
         if (tab_mod(&state)) continue;
         
         if (capslock_mod(&state)) continue;
-        
-        if (alt_mod(&state)) continue;
-        
-        if (right_alt_mod(&state)) continue;
+
+        if (!state.disable_alt_mod)
+            if (alt_mod(&state)) continue;
+    
+        if (!state.disable_alt_mod)
+            if (right_alt_mod(&state)) continue;
         
         // esc is caps lock
         if (state.input.code == KEY_ESC)

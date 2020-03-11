@@ -66,6 +66,12 @@ int alt_mod(struct appstate *state) {
         write_event(&syn);
         usleep(20000);
     } else if (equal(&state->input, &alt_down)) {
+       if(state->shift_is_down){
+           write_event(&alt_down);
+           
+           return 1;
+       }
+        
         state->alt_is_down = 1;
         return 1;
     }

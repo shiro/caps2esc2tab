@@ -114,4 +114,4 @@ tags
 
 .idea/workspace.xml
 build/
-cmake-build-debug/
+cmake-build-*/

@@ -84,7 +84,7 @@ struct appstate {
     int                alt_is_down;
     int                right_alt_is_down;
     
-    int                script_is_paused;
+    int disable_alt_mod;
     
     struct input_event input;
     
