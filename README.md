@@ -20,11 +20,6 @@ The mapping of the `ALT` keys can be toggled by pressing `F8`.
 with `SHIFT` + `LEFT_ALT` it is possible to pass through the `LEFT_ALT` key
 without pausing the mapping.
 
-## Why?
-
-- Add a new modifier key
-- Make keybindings more convenient
-
 ## Dependencies
 
 - [Interception Tools][interception-tools]
@@ -74,13 +69,4 @@ As always, there's always a caveat:
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/License_icon-mit-2.svg/120px-License_icon-mit-2.svg.png" alt="MIT">
 </a>
 
-Copyright © 2017 Francisco Lopes da Silva
-
-[caps2esc-windows]: https://github.com/oblitum/Interception/blob/master/samples/caps2esc/caps2esc.cpp
-[karabiner]: https://pqrs.org/osx/karabiner/
-[xmodmap]: https://www.x.org/releases/X11R7.7/doc/man/man1/xmodmap.1.xhtml
-[xcape]: https://github.com/alols/xcape
-[x]: https://www.x.org
-[interception]: https://github.com/oblitum/Interception
 [interception-tools]: https://gitlab.com/interception/linux/tools
-[key-repeat-fix]: https://github.com/oblitum/caps2esc/issues/1
