@@ -1,6 +1,6 @@
-# caps2esc2tab
+# Udev key-mods
 
-_Transforming the most useless keys **ever** in the most useful ones.
+Transforming the most useless keys **ever** in the most useful ones.
 
 <sub>not enough keys on your keyboard? here's some modifiers!</sub>
 
@@ -32,8 +32,6 @@ without pausing the mapping.
 ## Building
 
 ```
-$ git clone git@gitlab.com:interception/linux/plugins/caps2esc.git
-$ cd caps2esc
 $ mkdir build
 $ cd build
 $ cmake ..
@@ -42,11 +40,11 @@ $ make
 
 ## Execution
 
-`caps2esc2tab` is an [_Interception Tools_][interception-tools] plugin. A suggested
+This program is an [_Interception Tools_][interception-tools] plugin. A suggested
 `udevmon` job configuration is:
 
 ```yaml
-- JOB: "intercept -g $DEVNODE | caps2esc2tab | uinput -d $DEVNODE"
+- JOB: "intercept -g $DEVNODE | key-mods | uinput -d $DEVNODE"
   DEVICE:
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_TAB]
@@ -69,16 +67,6 @@ As always, there's always a caveat:
 - `intercept -g` will "grab" the detected devices for exclusive access.
 - If you tweak your key repeat settings, check whether they get reset.
   Please check [this report][key-repeat-fix] about the resolution.
-
-## History
-
-I forked the useful caps2esc key to add the tab functionality which I was
-using, while being on Windows OS.
-
-It's great for virtual monitor management as it's possible to use `tab` +
-`[key]` to easily switch desktops.  
-Furthermore it's even possible to combine `tab` with `caps lock` and `[key]` to
-get another set of bindable keys!
 
 ## License
 

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(caps2esc2tab)
+project(key-mods)
 
-add_executable(caps2esc2tab src/main.c src/capslock.h)
-target_compile_options(caps2esc2tab PRIVATE -Wall -Wextra)
+add_executable(key-mods src/main.c src/capslock.h)
+target_compile_options(key-mods PRIVATE -Wall -Wextra)
 
-install(TARGETS caps2esc2tab RUNTIME DESTINATION bin)
+install(TARGETS key-mods RUNTIME DESTINATION bin)
