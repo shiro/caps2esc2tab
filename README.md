@@ -16,6 +16,9 @@ A key remapping utility.
 - `TAB` + `[KEY]` is `ALT+SHIFT+META` + `[KEY]`
 - `RIGHT_ALT` + `[KEY]` is `ALT++META` + `[KEY]`
 
+The mapping of the `ALT` keys can be toggled by pressing `F8`.  
+with `SHIFT` + `LEFT_ALT` it is possible to pass through the `LEFT_ALT` key
+without pausing the mapping.
 
 ## Why?
 
