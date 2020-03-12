@@ -44,17 +44,14 @@ int main(void) {
         
         if (tab_mod(&state)) continue;
         
-        if (capslock_mod(&state)) continue;
-
+        if (!state.control_is_down)
+            if (capslock_mod(&state)) continue;
+        
         if (!state.disable_alt_mod)
             if (alt_mod(&state)) continue;
     
         if (!state.disable_alt_mod)
             if (right_alt_mod(&state)) continue;
-        
-        // esc is caps lock
-        if (state.input.code == KEY_ESC)
-            state.input.code = KEY_CAPSLOCK;
         
         
         write_event(&state.input);

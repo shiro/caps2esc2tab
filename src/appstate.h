@@ -106,6 +106,7 @@ void write_event(const struct input_event *event) {
         exit(EXIT_FAILURE);
 }
 
+// detects whether a modifier is pressed
 int is_modifier_down(struct appstate *state) {
     return state->alt_is_down || state->control_is_down || state->shift_is_down || state->meta_is_down;
 }
